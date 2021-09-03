@@ -11,12 +11,11 @@ main:
   
   // Initialize PWM pins for motor control
   motor_pin_a := gpio.Pin 26 --output
-  motor_pwm_a := gpio.Pwm --frequency=490
-  motor_1a := motor_pwm_a.start motor_pin_a
+  motor_pwm := gpio.Pwm --frequency=490
+  motor_1a := motor_pwm.start motor_pin_a
   
   motor_pin_b := gpio.Pin 27 --output
-  motor_pwm_b := gpio.Pwm --frequency=490
-  motor_1b := motor_pwm_b.start motor_pin_b
+  motor_1b := motor_pwm.start motor_pin_b
 
   // Check for any new message on INCOMING_TOPIC
   pubsub.subscribe INCOMING_TOPIC --auto_acknowledge: | msg/pubsub.Message |
